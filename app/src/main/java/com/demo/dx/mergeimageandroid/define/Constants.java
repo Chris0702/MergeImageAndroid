@@ -45,7 +45,7 @@ public class Constants {
     public static final String ALARM_SUMMARY_LOG_WEB_URL = "file:///android_asset/alarmSummary.html";
     public static final String SINGLE_VALUE_URL = "file:///android_asset/login.html";
     public static final String CONFIG_WEB_URL = "file:///android_asset/config.html";
-    public static final String HOME_WEB_URL = "file:///android_asset/home.html";
+    public static final String HOME_WEB_URL = "file:///android_asset/views/home.html";
     public static final String IP_INPUT_WEB_URL = "file:///android_asset/ipInput.html";
     public static final String LOGIN_WEB_URL = "file:///android_asset/login.html";
     public static final String TREND_WEB_URL = "file:///android_asset/trend.html";

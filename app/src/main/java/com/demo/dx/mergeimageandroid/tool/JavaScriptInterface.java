@@ -45,8 +45,9 @@ public class JavaScriptInterface {
         controlModel = model;
         createObj();
         mainWebViewScroll = view;
+        controller=factory.createHomeController(controlActivity, controlWebView, self, Constants.HOME_PAGE_NAME);
 //        controller = factory.createLoginController(controlActivity, controlWebView, self, Constants.LOGIN_PAGE_NAME, controlProject, controlUser, controlServer);
-//        controller.executeCtrl();
+        controller.executeCtrl();
 //        connectivityManager = (ConnectivityManager) controlActivity.getSystemService(Context.CONNECTIVITY_SERVICE);
 //        networkInfo = connectivityManager.getActiveNetworkInfo();
     }
