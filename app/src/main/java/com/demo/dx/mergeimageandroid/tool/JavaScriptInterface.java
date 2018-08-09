@@ -46,8 +46,8 @@ public class JavaScriptInterface {
         createObj();
         mainWebViewScroll = view;
         controller=factory.createHomeController(controlActivity, controlWebView, self, Constants.HOME_PAGE_NAME);
-//        controller = factory.createLoginController(controlActivity, controlWebView, self, Constants.LOGIN_PAGE_NAME, controlProject, controlUser, controlServer);
         controller.executeCtrl();
+//        setListener();
 //        connectivityManager = (ConnectivityManager) controlActivity.getSystemService(Context.CONNECTIVITY_SERVICE);
 //        networkInfo = connectivityManager.getActiveNetworkInfo();
     }
@@ -143,78 +143,21 @@ public class JavaScriptInterface {
                 controller = factory.createIntroductionController(controlActivity, controlWebView, self, Constants.INTRODUCTION_PAGE_NAME);
                 Log.d(TAG, "new IntroductionController ok");
                 break;
-//            case Constants.CONFIG_PAGE_NAME:
-//                Log.d(TAG, "new ConfigController");
-//                controller = factory.createConfigController(controlActivity, controlWebView, self, Constants.CONFIG_PAGE_NAME, controlProject, controlUser, controlServer);
-//                break;
-//            case Constants.ACTION_LOG_PAGE_NAME:
-//                Log.d(TAG, "new ActionLogController");
-//                controller = factory.createActionLogController(controlActivity, controlWebView, self, Constants.ACTION_LOG_PAGE_NAME, controlProject, controlUser, controlServer);
-//                break;
-//            case Constants.ALARM_LOG_PAGE_NAME:
-//                Log.d(TAG, "new AlarmLogController");
-//                controller = factory.createAlarmLogController(controlActivity, controlWebView, self, Constants.ALARM_LOG_PAGE_NAME, controlProject, controlUser, controlServer);
-//                break;
-//            case Constants.ALARM_SUMMARY_LOG_PAGE_NAME:
-//                Log.d(TAG, "new AlarmSummaryLogController");
-//                controller = factory.createAlarmSummaryLogController(controlActivity, controlWebView, self, Constants.ALARM_SUMMARY_LOG_PAGE_NAME, controlProject, controlUser, controlServer);
-//                break;
-//            case Constants.TAGS_INFO_GROUP_PAGE_NAME:
-//                Log.d(TAG, "new TagsInfoGroupController");
-//                controller = factory.createTagsInfoGroupController(controlActivity, controlWebView, self, Constants.TAGS_INFO_GROUP_PAGE_NAME, controlProject, controlUser, controlServer);
-//                break;
-//            case Constants.TAGS_INFO_LIST_PAGE_NAME:
-//                Log.d(TAG, "new TagsInfoListController");
-//                controller = factory.createTagsInfoListController(controlActivity, controlWebView, self, Constants.TAGS_INFO_LIST_PAGE_NAME, controlProject, controlUser, controlServer);
-//                break;
-//            case Constants.TAGS_INFO_VALUE_PAGE_NAME:
-//                Log.d(TAG, "new TagsInfoValueController");
-//                controller = factory.createTagsInfoValueController(controlActivity, controlWebView, self, Constants.TAGS_INFO_VALUE_PAGE_NAME, controlProject, controlUser, controlServer);
-//                break;
-//            case Constants.DASHBOARD_VIEW_PAGE_NAME:
-//                Log.d(TAG, "new DashboardViewController");
-//                controller = factory.createDashboardViewController(controlActivity, controlWebView, self, Constants.DASHBOARD_VIEW_PAGE_NAME, controlProject, controlUser, controlServer);
-//                break;
-//            case Constants.COMMUNICATION_STATUS_PAGE_NAME:
-//                Log.d(TAG, "new createCommunicationStatusController");
-//                controller = factory.createCommunicationStatusController(controlActivity, controlWebView, self, Constants.DASHBOARD_VIEW_PAGE_NAME, controlProject, controlUser, controlServer);
-//                break;
-//            case Constants.HISTORY_TREND_PAGE_NAME:
-//                Log.d(TAG, "new createHistoryTrendController");
-//                controller = factory.createHistoryTrendController(controlActivity, controlWebView, self, Constants.DASHBOARD_VIEW_PAGE_NAME, controlProject, controlUser, controlServer);
-//                break;
-//            case Constants.REALTIME_TREND_PAGE_NAME:
-//                Log.d(TAG, "new createRealtimeTrendController");
-//                controller = factory.createRealtimeTrendController(controlActivity, controlWebView, self, Constants.DASHBOARD_VIEW_PAGE_NAME, controlProject, controlUser, controlServer);
-//                break;
-//            case Constants.TREND_LIST_PAGE_NAME:
-//                Log.d(TAG, "new createTrendListController");
-//                controller = factory.createTrendListController(controlActivity, controlWebView, self, Constants.DASHBOARD_VIEW_PAGE_NAME, controlProject, controlUser, controlServer);
-//                break;
-//            case Constants.TREND_PAGE_NAME:
-//                Log.d(TAG, "new createTrendController");
-//                controller = factory.createTrendController(controlActivity, controlWebView, self, Constants.DASHBOARD_VIEW_PAGE_NAME, controlProject, controlUser, controlServer);
-//                break;
-//            //case Constants.GOOGLE_MAP_PAGE_NAME:
-//            //    Log.d(TAG, "new createGoogleMapController");
-//            //    controller = factory.createGoogleMapController(controlActivity, controlWebView, self, Constants.DASHBOARD_VIEW_PAGE_NAME, controlProject, controlUser, controlServer);
-//            //    break;
-//            case Constants.NODE_STATUS_PAGE_NAME:
-//                Log.d(TAG, "new NodeStatusController");
-//                controller = factory.createNodeStatusController(controlActivity, controlWebView, self, Constants.NODE_STATUS_PAGE_NAME, controlProject, controlUser, controlServer);
-//                break;
-//            case Constants.MAP_LIST_PAGE_NAME:
-//                Log.d(TAG, "new MapListController");
-//                controller = factory.createMapListController(controlActivity, controlWebView, self, Constants.MAP_LIST_PAGE_NAME, controlProject, controlUser, controlServer);
-//                break;
-//            case Constants.G_MAP_HOME:
-//                Log.d(TAG, "new GMapController");
-//                controller = factory.createMapController(controlActivity, controlWebView, self, Constants.G_MAP_HOME, controlProject, controlUser, controlServer);
-//                break;
-//            case Constants.B_MAP_HOME:
-//                Log.d(TAG, "new BMapController");
-//                controller = factory.createMapController(controlActivity, controlWebView, self, Constants.B_MAP_HOME, controlProject, controlUser, controlServer);
-//                break;
+            case Constants.MERGE_IMAGE_PAGE_NAME:
+                Log.d(TAG, "new mergeImageController");
+                controller = factory.createMergeImageController(controlActivity, controlWebView, self, Constants.MERGE_IMAGE_PAGE_NAME);
+                Log.d(TAG, "new mergeImageController ok");
+                break;
+            case Constants.ABOUT_PAGE_NAME:
+                Log.d(TAG, "new aboutController");
+                controller = factory.createAboutController(controlActivity, controlWebView, self, Constants.ABOUT_PAGE_NAME);
+                Log.d(TAG, "new aboutController ok");
+                break;
+            case Constants.UPLOAD_PAGE_NAME:
+                Log.d(TAG, "new uploadController");
+                controller = factory.createUploadController(controlActivity, controlWebView, self, Constants.UPLOAD_PAGE_NAME);
+                Log.d(TAG, "new uploadController ok");
+                break;
             default:
                 Log.d(TAG, "The page not ready yet");
                 controlModel.toastString("此頁面還未實作");

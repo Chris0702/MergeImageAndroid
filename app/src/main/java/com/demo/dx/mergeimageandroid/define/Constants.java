@@ -33,6 +33,9 @@ public class Constants {
     //web url
     public static final String HOME_WEB_URL = "file:///android_asset/views/home.html";
     public static final String INTRODUCTION_WEB_URL = "file:///android_asset/views/introduction.html";
+    public static final String UPLOAD_WEB_URL = "file:///android_asset/views/uploadMergeImage.html";
+    public static final String ABOUT_WEB_URL = "file:///android_asset/views/about.html";
+    public static final String MERGE_IMAGE_WEB_URL = "file:///android_asset/views/mergeImage.html";
 
     //javascript
     public static final String ANDROID_PARAMETER_FOR_JAVASCRIPT = "appJsInterface";
@@ -253,6 +256,8 @@ public class Constants {
     public static final String HOME_PAGE_NAME = "homePage";
     public static final String INTRODUCTION_PAGE_NAME = "introduction";
     public static final String MERGE_IMAGE_PAGE_NAME = "mergeImage";
+    public static final String UPLOAD_PAGE_NAME = "upload";
+    public static final String ABOUT_PAGE_NAME = "about";
 
 
     //controller command

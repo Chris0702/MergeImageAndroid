@@ -6,8 +6,11 @@ import android.content.Context;
 import android.webkit.WebView;
 import android.widget.ScrollView;
 
+import com.demo.dx.mergeimageandroid.controller.AboutController;
 import com.demo.dx.mergeimageandroid.controller.HomeController;
 import com.demo.dx.mergeimageandroid.controller.IntroductionController;
+import com.demo.dx.mergeimageandroid.controller.MergeImageController;
+import com.demo.dx.mergeimageandroid.controller.UploadController;
 import com.demo.dx.mergeimageandroid.fragment.MainWebViewFragment;
 
 //import com.webaccess.advantech.webaccessmobile.background.SystemData;
@@ -68,7 +71,18 @@ public class Factory {
     public IntroductionController createIntroductionController(Activity activity, WebView webView, JavaScriptInterface javaScriptInterface, String pageName) {
         return new IntroductionController(activity, webView, javaScriptInterface,pageName);
     }
-//
+
+    public AboutController createAboutController(Activity activity, WebView webView, JavaScriptInterface javaScriptInterface, String pageName) {
+        return new AboutController(activity, webView, javaScriptInterface,pageName);
+    }
+
+    public UploadController createUploadController(Activity activity, WebView webView, JavaScriptInterface javaScriptInterface, String pageName) {
+        return new UploadController(activity, webView, javaScriptInterface,pageName);
+    }
+
+    public MergeImageController createMergeImageController(Activity activity, WebView webView, JavaScriptInterface javaScriptInterface, String pageName) {
+        return new MergeImageController(activity, webView, javaScriptInterface,pageName);
+    }
 //
 //    public ConfigController createConfigController(Activity activity, WebView webView, JavaScriptInterface javaScriptInterface,String pageName,Project project,User user,Server server) {
 //        return new ConfigController(activity, webView, javaScriptInterface,pageName,project,user, server);
