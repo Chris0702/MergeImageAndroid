@@ -73,60 +73,24 @@ public class JavaScriptInterface {
         }
         return controlWebView;
     }
-//
-//    private void backPress() {
-//        switch (getControllerName()) {
-//            case Constants.ACTION_LOG_PAGE_NAME:
-//                changePage(StringProcess.getChangePageURL(Constants.HOME_PAGE_NAME));
-//                break;
-//            case Constants.ALARM_LOG_PAGE_NAME:
-//                changePage(StringProcess.getChangePageURL(Constants.HOME_PAGE_NAME));
-//                break;
-//            case Constants.ALARM_SUMMARY_LOG_PAGE_NAME:
-//                changePage(StringProcess.getChangePageURL(Constants.HOME_PAGE_NAME));
-//                break;
-//            case Constants.SINGLE_VALUE_PAGE_NAME:
-//                changePage(StringProcess.getChangePageURL(Constants.HOME_PAGE_NAME));
-//                break;
-//            case Constants.CONFIG_PAGE_NAME:
-//                changePage(StringProcess.getChangePageURL(Constants.HOME_PAGE_NAME));
-//                break;
-//            case Constants.TAGS_INFO_GROUP_PAGE_NAME:
-//                changePage(StringProcess.getChangePageURL(Constants.HOME_PAGE_NAME));
-//                break;
-//            case Constants.TAGS_INFO_LIST_PAGE_NAME:
-//                changePage(StringProcess.getChangePageURL(Constants.TAGS_INFO_GROUP_PAGE_NAME));
-//                break;
-//            case Constants.TAGS_INFO_VALUE_PAGE_NAME:
-//                changePage(StringProcess.getChangePageURL(Constants.TAGS_INFO_LIST_PAGE_NAME));
-//                break;
-//            case Constants.DASHBOARD_VIEW_PAGE_NAME:
-//                changePage(StringProcess.getChangePageURL(Constants.HOME_PAGE_NAME));
-//                break;
-//            case Constants.NODE_STATUS_PAGE_NAME:
-//                changePage(StringProcess.getChangePageURL(Constants.HOME_PAGE_NAME));
-//                break;
-//            case Constants.HOME_PAGE_NAME:
-//                if(!controlModel.isLogin())
-//                    changePage(StringProcess.getChangePageURL(Constants.LOGIN_PAGE_NAME));
-//                else{
-//                    controlModel.exitApp();
-//                }
-//                break;
-//            case Constants.LOGIN_PAGE_NAME:
-//                controlModel.exitApp();
-//                break;
-//            default:
-//        }
-//    }
-//
+
+    private void backPress() {
+        switch (getControllerName()) {
+            case Constants.MERGE_IMAGE_PAGE_NAME:
+                changePage(StringProcess.getChangePageURL(Constants.HOME_PAGE_NAME));
+                break;
+            default:
+                changePage(StringProcess.getChangePageURL(Constants.HOME_PAGE_NAME));
+        }
+    }
+
     private void setListener() {
         controlWebView.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == KeyEvent.ACTION_DOWN) {
                     if (keyCode == KeyEvent.KEYCODE_BACK) {
-//                        backPress();
+                        backPress();
                         return true;
                     }
                 }
@@ -161,22 +125,24 @@ public class JavaScriptInterface {
     public Model getControlModel() {
         return controlModel;
     }
-//
-//    public void setController(final String type) {
-//        Log.d(TAG, "setController type " + type);
-//        if (controller != null)
-//            controller.releaseResource();
-//        controller = null;
-//        switch (type) {
-//            case Constants.LOGIN_PAGE_NAME:
-//                Log.d(TAG, "new LoginController");
-//                controller = factory.createLoginController(controlActivity, controlWebView, self, Constants.LOGIN_PAGE_NAME, controlProject, controlUser, controlServer);
-//                break;
-//            case Constants.HOME_PAGE_NAME:
-//                Log.d(TAG, "new HomeController");
-//                controller = factory.createHomeController(controlActivity, controlWebView, self, Constants.HOME_PAGE_NAME, controlProject, controlUser, controlServer);
-//                Log.d(TAG, "new HomeController ok");
-//                break;
+
+    public void setController(final String type) {
+        Log.d(TAG, "setController type " + type);
+        controlModel.toastString("setController type " + type);
+        if (controller != null)
+            controller.releaseResource();
+        controller = null;
+        switch (type) {
+            case Constants.HOME_PAGE_NAME:
+                Log.d(TAG, "new HomeController");
+                controller = factory.createHomeController(controlActivity, controlWebView, self, Constants.HOME_PAGE_NAME);
+                Log.d(TAG, "new HomeController ok");
+                break;
+            case Constants.INTRODUCTION_PAGE_NAME:
+                Log.d(TAG, "new IntroductionController");
+                controller = factory.createIntroductionController(controlActivity, controlWebView, self, Constants.INTRODUCTION_PAGE_NAME);
+                Log.d(TAG, "new IntroductionController ok");
+                break;
 //            case Constants.CONFIG_PAGE_NAME:
 //                Log.d(TAG, "new ConfigController");
 //                controller = factory.createConfigController(controlActivity, controlWebView, self, Constants.CONFIG_PAGE_NAME, controlProject, controlUser, controlServer);
@@ -249,13 +215,13 @@ public class JavaScriptInterface {
 //                Log.d(TAG, "new BMapController");
 //                controller = factory.createMapController(controlActivity, controlWebView, self, Constants.B_MAP_HOME, controlProject, controlUser, controlServer);
 //                break;
-//            default:
-//                Log.d(TAG, "The page not ready yet");
-//                controlModel.toastString("此頁面還未實作");
-//        }
-//    }
-//
-//
+            default:
+                Log.d(TAG, "The page not ready yet");
+                controlModel.toastString("此頁面還未實作");
+        }
+    }
+
+
     public void executeCtrl() {
         controller.executeCtrl();
     }
@@ -689,9 +655,15 @@ public class JavaScriptInterface {
 
 
     @JavascriptInterface
-    public void changePage(final String controllerType) {
-        Log.d(TAG, "changePage   " + controllerType);
-//        setController(controllerType);
-//        controller.executeCtrl();
+    public void changePage(final String JSONString) {
+        Log.d(TAG, "changePage   " + JSONString);
+        JSONObject jsonObject = controlModel.getJsonObject(JSONString);
+        if (jsonObject != null) {
+            Object[] arg = new Object[3];
+            arg[0] = controlModel.getJSONProtString(Constants.URL, jsonObject);
+            setController(arg[0].toString());
+            controlModel.toastString("changePage   " + arg[0].toString());
+            controller.executeCtrl();
+        }
     }
 }

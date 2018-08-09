@@ -1,24 +1,15 @@
 package com.demo.dx.mergeimageandroid.controller;
 
 import android.app.Activity;
-import android.os.Handler;
 import android.util.Log;
-import android.view.KeyEvent;
-import android.view.View;
 import android.webkit.WebView;
 
 import com.demo.dx.mergeimageandroid.define.Constants;
 import com.demo.dx.mergeimageandroid.tool.JavaScriptInterface;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+public class IntroductionController extends Controller{
 
-/**
- * Created by Chris.Wu on 2016/11/2.
- */
-public class HomeController extends Controller {
-
-    public HomeController(Activity activity, WebView webView, JavaScriptInterface javaScriptInterface, String pageName) {
+    public IntroductionController(Activity activity, WebView webView, JavaScriptInterface javaScriptInterface, String pageName) {
         super(activity, webView, javaScriptInterface, pageName);
 
     }
@@ -49,7 +40,7 @@ public class HomeController extends Controller {
     private void updateWebView() {
         mainWebView.getSettings().setJavaScriptEnabled(true);
         mainWebView.getSettings().setDomStorageEnabled(true);
-        mainWebView.loadUrl(Constants.HOME_WEB_URL);
+        mainWebView.loadUrl(Constants.INTRODUCTION_WEB_URL);
         mainWebView.addJavascriptInterface(controlJavaScriptInterface, Constants.ANDROID_PARAMETER_FOR_JAVASCRIPT);
     }
 }

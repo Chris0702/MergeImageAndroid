@@ -7,6 +7,7 @@ import android.webkit.WebView;
 import android.widget.ScrollView;
 
 import com.demo.dx.mergeimageandroid.controller.HomeController;
+import com.demo.dx.mergeimageandroid.controller.IntroductionController;
 import com.demo.dx.mergeimageandroid.fragment.MainWebViewFragment;
 
 //import com.webaccess.advantech.webaccessmobile.background.SystemData;
@@ -62,6 +63,10 @@ public class Factory {
 //
     public HomeController createHomeController(Activity activity, WebView webView, JavaScriptInterface javaScriptInterface, String pageName) {
         return new HomeController(activity, webView, javaScriptInterface,pageName);
+    }
+
+    public IntroductionController createIntroductionController(Activity activity, WebView webView, JavaScriptInterface javaScriptInterface, String pageName) {
+        return new IntroductionController(activity, webView, javaScriptInterface,pageName);
     }
 //
 //

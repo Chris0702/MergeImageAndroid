@@ -26,6 +26,8 @@ import android.widget.Toast;
 //import com.webaccess.advantech.webaccessmobile.role.SystemInfo;
 //import com.webaccess.advantech.webaccessmobile.role.User;
 
+import com.demo.dx.mergeimageandroid.define.Constants;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -92,6 +94,19 @@ public class Model {
 //            dbHelper = null;
 //        }
     }
+
+        public void toastString(final String string) {
+        if (controlActivity != null) {
+            controlActivity.runOnUiThread(new Runnable() {
+                //  @Override
+                public void run() {
+                    Toast.makeText(controlActivity, string, Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
+
+
 //
 //    public boolean isOnline() {
 //        ConnectivityManager connectivityManager = (ConnectivityManager) controlActivity.getSystemService(Context.CONNECTIVITY_SERVICE);;
@@ -629,29 +644,29 @@ public class Model {
 //        JSONObject jsonObject = getJsonObject(JSONString);
 //        return getJSONProtString(protName, jsonObject);
 //    }
-//
-//    public JSONObject getJsonObject(String JSONString) {
-//        JSONObject jsonObject = null;
-//        try {
-//            if (JSONString.indexOf(Constants.OPEN_BRACE) >= 0) {
-//                JSONString = JSONString.substring(JSONString.indexOf(Constants.OPEN_BRACE), JSONString.lastIndexOf(Constants.CLOSE_BRACE) + 1);
-//            }
-//            jsonObject = new JSONObject(JSONString);
-//        } catch (JSONException e) {
-//        }
-//        return jsonObject;
-//    }
-//
-//    public String getJSONProtString(String protName, JSONObject jsonObject) {
-//        String result = Constants.EMPTY_STRING;
-//        if (jsonObject != null)
-//            try {
-//                result = jsonObject.getString(protName);
-//            } catch (JSONException e) {
-//            }
-//        return result;
-//    }
-//
+
+    public JSONObject getJsonObject(String JSONString) {
+        JSONObject jsonObject = null;
+        try {
+            if (JSONString.indexOf(Constants.OPEN_BRACE) >= 0) {
+                JSONString = JSONString.substring(JSONString.indexOf(Constants.OPEN_BRACE), JSONString.lastIndexOf(Constants.CLOSE_BRACE) + 1);
+            }
+            jsonObject = new JSONObject(JSONString);
+        } catch (JSONException e) {
+        }
+        return jsonObject;
+    }
+
+    public String getJSONProtString(String protName, JSONObject jsonObject) {
+        String result = Constants.EMPTY_STRING;
+        if (jsonObject != null)
+            try {
+                result = jsonObject.getString(protName);
+            } catch (JSONException e) {
+            }
+        return result;
+    }
+
 //    public String getProperIp(String ip) {
 //        String front = Constants.EMPTY_STRING;
 //        boolean addFront = true;

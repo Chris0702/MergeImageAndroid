@@ -74,10 +74,10 @@ public class Controller {
 //
 //    }
 //
-//    public void releaseResource() {
-//        Log.d(TAG, "releaseResource");
-//    }
-//
+    public void releaseResource() {
+        Log.d(TAG, "releaseResource");
+    }
+
     public void executeCmd(String cmd, Object[] arg) {
         Log.d(TAG, "executeCmd " + cmd + " " + arg);
     }

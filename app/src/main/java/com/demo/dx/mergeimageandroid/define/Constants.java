@@ -31,35 +31,8 @@ public class Constants {
     public static final String SOCKET_AUTHENTICATED_EVENT = "authenticated";
 
     //web url
-//    public static final String ACTION_LOG_WEB_URL = "file:///android_asset/actionLogWeb.html";
-//    public static final String ALARM_LOG_WEB_URL = "file:///android_asset/alarmLogWeb.html";
-//    public static final String ALARM_SUMMARY_LOG_WEB_URL = "file:///android_asset/alarmSummaryLogWeb.html";
-//    public static final String SINGLE_VALUE_URL = "file:///android_asset/loginWeb.html";
-//    public static final String CONFIG_WEB_URL = "file:///android_asset/configWeb.html";
-//    public static final String HOME_WEB_URL = "file:///android_asset/homeWeb.html";
-//    public static final String IP_INPUT_WEB_URL = "file:///android_asset/ipInputWeb.html";
-//    public static final String LOGIN_WEB_URL = "file:///android_asset/loginWeb.html";
-
-    public static final String ACTION_LOG_WEB_URL = "file:///android_asset/actionLog.html";
-    public static final String ALARM_LOG_WEB_URL = "file:///android_asset/alarmLog.html";
-    public static final String ALARM_SUMMARY_LOG_WEB_URL = "file:///android_asset/alarmSummary.html";
-    public static final String SINGLE_VALUE_URL = "file:///android_asset/login.html";
-    public static final String CONFIG_WEB_URL = "file:///android_asset/config.html";
     public static final String HOME_WEB_URL = "file:///android_asset/views/home.html";
-    public static final String IP_INPUT_WEB_URL = "file:///android_asset/ipInput.html";
-    public static final String LOGIN_WEB_URL = "file:///android_asset/login.html";
-    public static final String TREND_WEB_URL = "file:///android_asset/trend.html";
-    public static final String TREND_LIST_WEB_URL = "file:///android_asset/trendList.html";
-    public static final String TAGS_INFO_GROUP_WEB_URL = "file:///android_asset/tagsInfoGroup.html";
-    public static final String TAGS_INFO_LIST_WEB_URL = "file:///android_asset/tagsInfoList.html";
-    public static final String TAGS_INFO_VALUE_WEB_URL = "file:///android_asset/tagsInfoValue.html";
-    public static final String GOOGLE_MAP_WEB_URL = "file:///android_asset/googleMap.html";
-    public static final String NODE_STATUS_WEB_URL = "file:///android_asset/nodeStatus.html";
-    public static String DASHBOARD_VIEW_WEB_URL = SERVER_URL+"/wadashboard/dashboardviewer";
-
-    public static final String MAP_LOCAL_WEB_URL = "file:///android_asset/map.html";
-    public static final String BAIDU_MAP_LOCAL_WEB_URL = "file:///android_asset/bmapPage.html";
-    public static final String MAP_LIST_LOCAL_WEB_URL = "file:///android_asset/mapList.html";
+    public static final String INTRODUCTION_WEB_URL = "file:///android_asset/views/introduction.html";
 
     //javascript
     public static final String ANDROID_PARAMETER_FOR_JAVASCRIPT = "appJsInterface";
@@ -277,38 +250,10 @@ public class Constants {
 
     //page
     public static final String CONTROL_PAGE_NAME = "Controller";
-    public static final String ACTION_LOG_PAGE_NAME = "actionLog";
-    public static final String ALARM_LOG_PAGE_NAME = "alarmLog";
-    public static final String ALARM_SUMMARY_LOG_PAGE_NAME = "alarmSummary";
-    public static final String CONFIG_PAGE_NAME = "config";
     public static final String HOME_PAGE_NAME = "homePage";
-    public static final String IP_INPUT_PAGE_NAME = "ipInput";
-    public static final String LOGIN_PAGE_NAME = "login";
-    public static final String SINGLE_VALUE_PAGE_NAME = "singleValue";
-    public static final String TAGS_INFO_GROUP_PAGE_NAME = "tagsInfoGroup";
-    public static final String TAGS_INFO_LIST_PAGE_NAME ="tagsInfoList";
-    public static final String TAGS_INFO_VALUE_PAGE_NAME ="tagsInfoValue";
-    public static final String DASHBOARD_VIEW_PAGE_NAME ="dashboard";
-    public static final String REALTIME_TREND_PAGE_NAME ="realtimeTrend";
-    public static final String TREND_PAGE_NAME ="trend";
-    public static final String TREND_LIST_PAGE_NAME ="trendList";
-    public static final String HISTORY_TREND_PAGE_NAME ="historyTrend";
-    public static final String GOOGLE_MAP_PAGE_NAME ="map";
-    public static final String COMMUNICATION_STATUS_PAGE_NAME ="communicationStatus";
-    public static final String NODE_STATUS_PAGE_NAME = "nodeStatus";
+    public static final String INTRODUCTION_PAGE_NAME = "introduction";
+    public static final String MERGE_IMAGE_PAGE_NAME = "mergeImage";
 
-    public static final String ACTION_LOG_HOME="actionLog";
-    public static final String ALARM_LOG_HOME="alarmLog";
-    public static final String ALARM_SUMMARY_LOG_HOME="alarmSummary";
-    public static final String TREND_HOME="trend";
-//    public static final String REAL_TIME_TREND_HOME="realTimeTrend";
-    public static final String DASHBOARD_HOME="dashboard";
-    public static final String TAGS_INFO_HOME="tagsInfo";
-    public static final String G_MAP_HOME="map";
-    public static final String NODE_HOME="nodeStatus";
-
-    public static final String MAP_LIST_PAGE_NAME = "mapList";
-    public static final String B_MAP_HOME="bmapPage";
 
     //controller command
     public static final String INPUT_CONNECT_IP_COMMAND = "inputConnectIP";
