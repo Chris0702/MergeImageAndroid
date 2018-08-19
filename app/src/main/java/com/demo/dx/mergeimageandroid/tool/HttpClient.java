@@ -17,87 +17,89 @@ package com.demo.dx.mergeimageandroid.tool;
 //import com.webaccess.advantech.webaccessmobile.role.SystemInfo;
 //import com.webaccess.advantech.webaccessmobile.service.FirebaseInstanceIDService;
 //
-//import java.io.IOException;
-//import java.util.ArrayList;
-//import java.util.HashMap;
-//import java.util.List;
+import android.util.Log;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 //
-//import okhttp3.Call;
-//import okhttp3.Callback;
-//import okhttp3.Cookie;
-//import okhttp3.CookieJar;
-//import okhttp3.FormBody;
-//import okhttp3.HttpUrl;
-//import okhttp3.OkHttpClient;
-//import okhttp3.Request;
-//import okhttp3.RequestBody;
-//import okhttp3.Response;
-//import okhttp3.MediaType;
+import com.demo.dx.mergeimageandroid.define.Constants;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Cookie;
+import okhttp3.CookieJar;
+import okhttp3.FormBody;
+import okhttp3.HttpUrl;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import okhttp3.MediaType;
 
 /**
  * Created by Chris.Wu on 2016/11/10.
  */
 
 public class HttpClient {
-//    private OkHttpClient okHttpClient;
-//    private String serverToken;
+    private OkHttpClient okHttpClient;
+    private String serverToken;
 //
-//    public HttpClient() {
-////        okHttpClient = new OkHttpClient();
-//        serverToken = Constants.EMPTY_STRING;
-//        createOkHttpClient();
-//    }
-//
-//    public HttpClient(String serverToken) {
-//        okHttpClient = new OkHttpClient();
-//        this.serverToken = serverToken;
-//        createOkHttpClient();
-//    }
-//
-//    public void setServerToken(String serverToken) {
-//        this.serverToken = serverToken;
-//    }
-//
-//    public String getServerToken() {
-//        return serverToken;
-//    }
-//
-//    public void createOkHttpClient() {
-//        okHttpClient = new OkHttpClient.Builder()
-//                .cookieJar(new CookieJar() {
-//                    private final HashMap<HttpUrl, List<Cookie>> cookieStore = new HashMap<>();
-//
-//                    @Override
-//                    public void saveFromResponse(HttpUrl url, List<Cookie> cookies) {
-////                        Log.d("okhttp","saveFromResponse");
-////                        Log.d("okhttp",""+url.toString());
-////                        Log.d("okhttp",""+ cookies.toString());
-//                        String cookiesString = cookies.toString();
-//                        if (cookiesString.indexOf(Constants.SERVER_TOKEN_TITLE) > 0) {
-//                            cookiesString = cookiesString.substring(cookiesString.indexOf(Constants.SERVER_TOKEN_TITLE) + 4, cookiesString.indexOf(Constants.SEMICOLON));
+    public HttpClient() {
+        createOkHttpClient();
+    }
+
+    public HttpClient(String serverToken) {
+        okHttpClient = new OkHttpClient();
+        this.serverToken = serverToken;
+        createOkHttpClient();
+    }
+
+    public void setServerToken(String serverToken) {
+        this.serverToken = serverToken;
+    }
+
+    public String getServerToken() {
+        return serverToken;
+    }
+
+    public void createOkHttpClient() {
+        okHttpClient = new OkHttpClient.Builder()
+                .cookieJar(new CookieJar() {
+                    private final HashMap<HttpUrl, List<Cookie>> cookieStore = new HashMap<>();
+
+                    @Override
+                    public void saveFromResponse(HttpUrl url, List<Cookie> cookies) {
+//                        Log.d("okhttp","saveFromResponse");
+//                        Log.d("okhttp",""+url.toString());
+//                        Log.d("okhttp",""+ cookies.toString());
+                        String cookiesString = cookies.toString();
+                        if (cookiesString.indexOf(Constants.SERVER_TOKEN_TITLE) > 0) {
+                            cookiesString = cookiesString.substring(cookiesString.indexOf(Constants.SERVER_TOKEN_TITLE) + 4, cookiesString.indexOf(Constants.SEMICOLON));
 //                            serverToken = cookiesString;
-//                        }
-//                        Log.d("okhttp", " :::   " + cookiesString);
-//                    }
-//
-//                    @Override
-//                    public List<Cookie> loadForRequest(HttpUrl url) {
-//                        List<Cookie> cookies = cookieStore.get(url.host());
-////                        Log.d("okhttp","loadForRequest");
-////                        Log.d("okhttp",""+ url.toString());
-//                        return cookies != null ? cookies : new ArrayList<Cookie>();
-//                    }
-//                })
-//                .build();
-//    }
-//
-//    public OkHttpClient getClient() {
-//        return okHttpClient;
-//    }
-//
-//    public Call getCall(Request request) {
-//        return okHttpClient.newCall(request);
-//    }
+                        }
+                        Log.d("okhttp", " :::   " + cookiesString);
+                    }
+
+                    @Override
+                    public List<Cookie> loadForRequest(HttpUrl url) {
+                        List<Cookie> cookies = cookieStore.get(url.host());
+//                        Log.d("okhttp","loadForRequest");
+//                        Log.d("okhttp",""+ url.toString());
+                        return cookies != null ? cookies : new ArrayList<Cookie>();
+                    }
+                })
+                .build();
+    }
+
+    public OkHttpClient getClient() {
+        return okHttpClient;
+    }
+
+    public Call getCall(Request request) {
+        return okHttpClient.newCall(request);
+    }
 //
 //    public void setTagValue(final String projectName, final String tags, final HttpHandler handler ){ //TagsInfoValueController tagsInfoValueController) {
 //        RequestBody requestBody = new FormBody.Builder()
