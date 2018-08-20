@@ -19,6 +19,10 @@ import java.util.Calendar;
  */
 
 public class StringProcess {
+    public static String getChangePageURL(String controllerType) {
+        String result = "{" + Constants.DOUBLE_QUOTES + "url" + Constants.DOUBLE_QUOTES + ":" + controllerType + "}";
+        return result;
+    }
 
     public static void updateUrlPath() {
         Constants.SERVER_IS_EXIST_API = Constants.SERVER_URL + getLocalRestAPI(Constants.SERVER_API_TYPE,Constants.SERVER_IS_EXIST_API);
@@ -30,6 +34,21 @@ public class StringProcess {
 
     public static String getLocalPathAllApiUrl(String folderName) {
         return Constants.GET_LOCAL_PATH_ALL_API + "?foldername="+folderName;
+    }
+
+        public static String getJavascriptFunctionStringBy1WayStringArrayString(String stringArray, String stringName, String functionName) {
+        String arg = "{" + Constants.DOUBLE_QUOTES + stringName + Constants.DOUBLE_QUOTES + ":" + stringArray + "}";
+        String result = Constants.JAVASCRIPT + ":" + Constants.JAVASCRIPT_PARAMETER_FOR_ANDROID + "." + functionName + "('" + arg + "')";
+        return result;
+    }
+
+        public static String getJavascriptFunctionStringByArrayStringAndString(String arrayStringName, String arrayStringValue, String stringName, String stringValue, String functionName) {
+        String arg = "{"
+                + Constants.DOUBLE_QUOTES + arrayStringName + Constants.DOUBLE_QUOTES + ":" + arrayStringValue + ","
+                + Constants.DOUBLE_QUOTES + stringName + Constants.DOUBLE_QUOTES + ":" + Constants.DOUBLE_QUOTES + stringValue + Constants.DOUBLE_QUOTES
+                + "}";
+        String result = Constants.JAVASCRIPT + ":" + Constants.JAVASCRIPT_PARAMETER_FOR_ANDROID + "." + functionName + "('" + arg + "')";
+        return result;
     }
 
 //    public static String getModifiedDialogTagName(String tagName) {
@@ -92,10 +111,10 @@ public class StringProcess {
 //        return Constants.GET_TAGS_DATA_REST_API + "/" + projectName ;
 //    }
 //
-    public static String getChangePageURL(String controllerType) {
-        String result = "{" + Constants.DOUBLE_QUOTES + "url" + Constants.DOUBLE_QUOTES + ":" + controllerType + "}";
-        return result;
-    }
+//    public static String getChangePageURL(String controllerType) {
+//        String result = "{" + Constants.DOUBLE_QUOTES + "url" + Constants.DOUBLE_QUOTES + ":" + controllerType + "}";
+//        return result;
+//    }
 //
 //    public static String getCookieString(String serverToken) {
 //        return "WDT=" + serverToken;

@@ -40,6 +40,10 @@ public class Constants {
     //javascript
     public static final String ANDROID_PARAMETER_FOR_JAVASCRIPT = "appJsInterface";
     public static final String JAVASCRIPT_PARAMETER_FOR_ANDROID = "jsAppInterface";
+
+    public static final String SET_MERGE_IMAGE_ALL_JAVASCRIPT = "setMergeImageAll";
+
+
     public static final String INSERT_IP_HISTORY_LIST_JAVASCRIPT = "insertIpHistoryList";
     public static final String INSERT_ACCOUNT_HISTORY_LIST_JAVASCRIPT = "insertAccountHistoryList";
     public static final String INSERT_PROJECT_LIST_JAVASCRIPT = "insertProjectList";
@@ -171,6 +175,8 @@ public class Constants {
             + "CONSTRAINT "+PROJECT_ID_SQL+" PRIMARY KEY ("+PROJECT_IP_SQL+","+PROJECT_NAME_SQL+")); ";
 
     //util
+    public static final String SERVER_URL_STRING="serverUrl";
+    public static final String IMAGE_ARRAY="imgArr";
     public static final String OPEN_BRACE = "{";
     public static final String CLOSE_BRACE = "}";
     public static final String TOKEN = "token";
@@ -265,6 +271,8 @@ public class Constants {
 
 
     //controller command
+    public static final String GET_MERGE_IMAGE_ALL_SRC_COMMAND = "getMergeImageAllSrc";
+
     public static final String INPUT_CONNECT_IP_COMMAND = "inputConnectIP";
     public static final String GET_IP_HISTORY_LIST_COMMAND = "getIpHistoryList";
     public static final String INPUT_ACCOUNT_COMMAND = "inputAccount";
@@ -304,7 +312,7 @@ public class Constants {
 
     //rest api
     public static String SERVER_IS_EXIST_API = SERVER_URL + "/server/isExist";
-    public static String GET_LOCAL_PATH_ALL_API = SERVER_URL + " /file/getLocalPathAll";
+    public static String GET_LOCAL_PATH_ALL_API = SERVER_URL + "/file/getLocalPathAll";
 
 
 

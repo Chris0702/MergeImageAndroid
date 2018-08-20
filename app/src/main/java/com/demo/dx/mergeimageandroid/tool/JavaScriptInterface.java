@@ -31,12 +31,13 @@ public class JavaScriptInterface {
     private WebView controlWebView;
     private JavaScriptInterface self = this;
     private Model controlModel;
-//    private Project controlProject;
+    //    private Project controlProject;
 //    private User controlUser;
 //    private Server controlServer;
     private JSONObject localStorageMem;
     private ScrollView mainWebViewScroll;
-//    ConnectivityManager connectivityManager;
+
+    //    ConnectivityManager connectivityManager;
 //    NetworkInfo networkInfo;
 //
     public JavaScriptInterface(Activity activity, WebView webView, Model model, ScrollView view) {
@@ -45,13 +46,14 @@ public class JavaScriptInterface {
         controlModel = model;
         createObj();
         mainWebViewScroll = view;
-        controller=factory.createHomeController(controlActivity, controlWebView, self, Constants.HOME_PAGE_NAME);
+        controller = factory.createHomeController(controlActivity, controlWebView, self, Constants.HOME_PAGE_NAME);
         controller.executeCtrl();
 //        setListener();
 //        connectivityManager = (ConnectivityManager) controlActivity.getSystemService(Context.CONNECTIVITY_SERVICE);
 //        networkInfo = connectivityManager.getActiveNetworkInfo();
     }
-//
+
+    //
     private void createObj() {
         //factory = new Factory();
 //        controlProject = factory.createProject();
@@ -59,13 +61,14 @@ public class JavaScriptInterface {
 //        controlServer = factory.createServer();
         localStorageMem = new JSONObject();
     }
-//
+
+    //
 //    public WebView getWebview(){
 //        return controlWebView;
 //    }
 //
-    public WebView refreshWebview(){
-        if(mainWebViewScroll!=null) {
+    public WebView refreshWebview() {
+        if (mainWebViewScroll != null) {
             mainWebViewScroll.removeView(controlWebView);
             controlWebView = new WebView(controlActivity);
             mainWebViewScroll.addView(controlWebView);
@@ -168,6 +171,13 @@ public class JavaScriptInterface {
     public void executeCtrl() {
         controller.executeCtrl();
     }
+
+    @JavascriptInterface
+    public void getMergeImageAllSrc() {
+        Log.d(TAG, "   getMergeImageAllSrc    ");
+        controller.executeCmd(Constants.GET_MERGE_IMAGE_ALL_SRC_COMMAND, null);
+    }
+
 //
 //    public JSONObject getLocalStorageMem() {
 //        return localStorageMem;

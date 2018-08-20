@@ -126,6 +126,7 @@ public class HttpClient {
     public void getLocalPathAll(final String folderName,final Controller controller) {
         Log.d("debug", "http  rest api getLocalPathAll  ");
         String requestUrl = StringProcess.getLocalPathAllApiUrl(folderName);
+        Log.d("debug", requestUrl);
         Request request = new Request.Builder()
                 .url(requestUrl)
                 .build();
@@ -134,13 +135,14 @@ public class HttpClient {
             @Override
             public void onFailure(Call call, IOException e) {
 //                controller.checkServerIsExistResponse(false,Constants.EMPTY_STRING);
+                controller.getLocalPathAllResponse(Constants.EMPTY_STRING);
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String receiveMessage = response.body().string();
                 Log.d("http", receiveMessage);
-//                controller.checkServerIsExistResponse(true,receiveMessage);
+                controller.getLocalPathAllResponse(receiveMessage);
             }
         });
     }

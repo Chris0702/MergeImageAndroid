@@ -36,7 +36,8 @@ public class Controller {
     public Controller() {
         controlPageName = Constants.CONTROL_PAGE_NAME;
     }
-//
+
+    //
     public Controller(Activity activity, WebView webView, JavaScriptInterface javaScriptInterface, String pageName) {
         //factory = new Factory();
         controlPageName = pageName;
@@ -55,21 +56,20 @@ public class Controller {
         controlHttpClient.checkServerIsExist(this);
     }
 
-    public void checkServerIsExistResponse(boolean result ,final String receiveMessage){
-        if(result){
+    public void checkServerIsExistResponse(boolean result, final String receiveMessage) {
+        if (result) {
             if (controlModel.getHttpResult(receiveMessage)) {
-                controlModel.toastString("server is exist");
-            }else{
-                controlModel.toastString("server is not exist");
+//                controlModel.toastString("server is exist");
+            } else {
+//                controlModel.toastString("server is not exist");
             }
-        }else{
-            controlModel.toastString("server is not exist");
-//            StringProcess.updateUrlPath();
-//            controlModel.toastString(Constants.SERVER_IS_EXIST_API);
+        } else {
+//            controlModel.toastString("server is not exist");
         }
     }
 
-
+    public void getLocalPathAllResponse(String result){
+    }
 
 //    public void checkServerIsExistResponse(final String receiveMessage){
 //        if (controlModel.getHttpResult(receiveMessage)) {
@@ -79,7 +79,7 @@ public class Controller {
 //        }
 //    }
 
-//
+    //
 //    public langController getControllerLang(){
 //        return lang;
 //    }
@@ -95,7 +95,8 @@ public class Controller {
     public String getControlPageName() {
         return controlPageName;
     }
-//
+
+    //
 //    public Model getControlModel() {
 //        return controlModel;
 //    }
