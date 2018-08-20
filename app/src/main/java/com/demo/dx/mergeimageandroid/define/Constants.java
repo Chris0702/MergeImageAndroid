@@ -4,8 +4,8 @@ package com.demo.dx.mergeimageandroid.define;
  * Created by Chris.Wu on 2016/10/21.
  */
 public class Constants {
-    //    public static final String SERVER_URL = "http://192.168.0.10:3000";
-    public static String SERVER_URL = "http://172.18.2.42:81";
+        public static final String SERVER_URL = "http://192.168.0.11:3000";
+//    public static String SERVER_URL = "http://172.18.2.42:81";
 //public static final String SERVER_URL = "http://172.18.2.42:3000";
 //public static final String SERVER_URL = "http://54.249.42.33:81";
 
@@ -80,6 +80,10 @@ public class Constants {
     //permissions
     public static final int SYSTEM_ALERT_WINDOW_PERMISSIONS_REQUEST_CODE = 0;
     public static final int WRITE_EXTERNAL_STORAGE_PERMISSIONS_REQUEST_CODE = 1;
+
+    //folderName
+    public static final String MERGE_IMAGE_FOLDER = "mergeImage";
+
 
     //sqlite
     public static final String DATABASE_NAME = "webaccessDB";
@@ -292,26 +296,37 @@ public class Constants {
     public static final String GET_MAP_CONFIG = "getMapConfig";
     public static final String GET_LOCAL_STORAGE_MEM_ALL_COMMAND="getLocalStorageMemAll";
 
-    //rest api
-    public static String READ_PROJECT_LIST_REST_API = SERVER_URL + "/WADashboard/api/dashboard/v1/mainframes/readProjectList";
-    public static String GET_WEBACCESS_PROJECT_LIST_API = SERVER_URL + "/WADashboard/api/dashboard/v6/waConfig/getWebAccessProjectList";
-    public static String GET_VERSION_API = SERVER_URL + "/WADashboard/api/dashboard/v6/waConfig/getDashReVer";
-    public static String GET_DASHBOARD_TOKEN_REST_API = SERVER_URL + "/WADashboard/api/dashboard/v6/auth/getToken";
-    public static String GET_NODE_LIST_REST_API = SERVER_URL +"/WADashboard/api/dashboard/v1/tagAjaxAction/getNodeList";
-    public static String GET_R_TREND_GROUP_ID_REST_API = SERVER_URL +"/WADashboard/api/dashboard/v1/tagAjaxAction/getRTrendGroupId";
-    public static String GET_R_TREND_CONFIG_REST_API = SERVER_URL +"/WADashboard/api/dashboard/v1/tagAjaxAction/getRTrendConfig";
-    public static String GET_TAGS_DATA_REST_API = SERVER_URL +"/WADashboard/api/dashboard/v1/tagAjaxAction/getTagsData";
-    public static String ALARM_ACK_REST_API = SERVER_URL +"/WADashboard/api/dashboard/v1/tagAjaxAction/alarmAck";
-    public static String ALARM_ACK_ALL_REST_API = SERVER_URL +"/WADashboard/api/dashboard/v1/tagAjaxAction/alarmAckAll";
-    public static String GET_TAG_LIST_BY_PAGE_REST_API = SERVER_URL +"/WADashboard/api/dashboard/v1/tagAjaxAction/getTagListByPage";
-    public static String SET_TAG_VALUES_REST_API = SERVER_URL +"/WADashboard/api/dashboard/v1/tagAjaxAction/setTagValues";
-    public static String SUBSCRIBE_NOTIFY_REST_API = SERVER_URL +"/WADashboard/api/dashboard/v1/mobile/subscribeNotify";
-    public static String UNSUBSCRIBE_NOTIFY_REST_API = SERVER_URL +"/WADashboard/api/dashboard/v6/mobile/unSubscribeNotify";
+    //rest api type
+    public static String SERVER_API_TYPE = "server";
+    public static String EXE_API_TYPE = "exe";
+    public static String FILE_API_TYPE = "file";
+    public static String USER_API_TYPE = "user";
 
-    public static String GET_GOOGLE_MAP_LIST_REST_API = "/WADashboard/api/dashboard/v1/tagAjaxAction/getGoogleMapList";
-    public static String GET_BAIDU_MAP_LIST_REST_API = "/WADashboard/api/dashboard/v1/tagAjaxAction/getBaiduMapList";
-    public static String GET_GOOGLE_MAP_CONFIG_REST_API = "/WADashboard/api/dashboard/v1/tagAjaxAction/getGoogleMapConfig";
-    public static String GET_BAIDU_MAP_CONFIG_REST_API = "/WADashboard/api/dashboard/v1/tagAjaxAction/getBaiduMapConfig";
+    //rest api
+    public static String SERVER_IS_EXIST_API = SERVER_URL + "/server/isExist";
+    public static String GET_LOCAL_PATH_ALL_API = SERVER_URL + " /file/getLocalPathAll";
+
+
+
+//    public static String READ_PROJECT_LIST_REST_API = SERVER_URL + "/WADashboard/api/dashboard/v1/mainframes/readProjectList";
+//    public static String GET_WEBACCESS_PROJECT_LIST_API = SERVER_URL + "/WADashboard/api/dashboard/v6/waConfig/getWebAccessProjectList";
+//    public static String GET_VERSION_API = SERVER_URL + "/WADashboard/api/dashboard/v6/waConfig/getDashReVer";
+//    public static String GET_DASHBOARD_TOKEN_REST_API = SERVER_URL + "/WADashboard/api/dashboard/v6/auth/getToken";
+//    public static String GET_NODE_LIST_REST_API = SERVER_URL +"/WADashboard/api/dashboard/v1/tagAjaxAction/getNodeList";
+//    public static String GET_R_TREND_GROUP_ID_REST_API = SERVER_URL +"/WADashboard/api/dashboard/v1/tagAjaxAction/getRTrendGroupId";
+//    public static String GET_R_TREND_CONFIG_REST_API = SERVER_URL +"/WADashboard/api/dashboard/v1/tagAjaxAction/getRTrendConfig";
+//    public static String GET_TAGS_DATA_REST_API = SERVER_URL +"/WADashboard/api/dashboard/v1/tagAjaxAction/getTagsData";
+//    public static String ALARM_ACK_REST_API = SERVER_URL +"/WADashboard/api/dashboard/v1/tagAjaxAction/alarmAck";
+//    public static String ALARM_ACK_ALL_REST_API = SERVER_URL +"/WADashboard/api/dashboard/v1/tagAjaxAction/alarmAckAll";
+//    public static String GET_TAG_LIST_BY_PAGE_REST_API = SERVER_URL +"/WADashboard/api/dashboard/v1/tagAjaxAction/getTagListByPage";
+//    public static String SET_TAG_VALUES_REST_API = SERVER_URL +"/WADashboard/api/dashboard/v1/tagAjaxAction/setTagValues";
+//    public static String SUBSCRIBE_NOTIFY_REST_API = SERVER_URL +"/WADashboard/api/dashboard/v1/mobile/subscribeNotify";
+//    public static String UNSUBSCRIBE_NOTIFY_REST_API = SERVER_URL +"/WADashboard/api/dashboard/v6/mobile/unSubscribeNotify";
+//
+//    public static String GET_GOOGLE_MAP_LIST_REST_API = "/WADashboard/api/dashboard/v1/tagAjaxAction/getGoogleMapList";
+//    public static String GET_BAIDU_MAP_LIST_REST_API = "/WADashboard/api/dashboard/v1/tagAjaxAction/getBaiduMapList";
+//    public static String GET_GOOGLE_MAP_CONFIG_REST_API = "/WADashboard/api/dashboard/v1/tagAjaxAction/getGoogleMapConfig";
+//    public static String GET_BAIDU_MAP_CONFIG_REST_API = "/WADashboard/api/dashboard/v1/tagAjaxAction/getBaiduMapConfig";
 
     //extraData
     public static final String ACTION_EXTRA_KEY = "action";

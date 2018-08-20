@@ -20,6 +20,18 @@ import java.util.Calendar;
 
 public class StringProcess {
 
+    public static void updateUrlPath() {
+        Constants.SERVER_IS_EXIST_API = Constants.SERVER_URL + getLocalRestAPI(Constants.SERVER_API_TYPE,Constants.SERVER_IS_EXIST_API);
+    }
+
+    public static String getLocalRestAPI(String apiType,String api) {
+        return api.substring(api.indexOf("/"+apiType), api.length());
+    }
+
+    public static String getLocalPathAllApiUrl(String folderName) {
+        return Constants.GET_LOCAL_PATH_ALL_API + "?foldername="+folderName;
+    }
+
 //    public static String getModifiedDialogTagName(String tagName) {
 //        if (tagName.length() >= Constants.TAG_NAME_MODIFIED_LENGTH_DIALOG) {
 //            return tagName.substring(0, Constants.TAG_NAME_MODIFIED_LENGTH_DIALOG) + "...";
@@ -293,36 +305,13 @@ public class StringProcess {
 //        return result;
 //    }
 //
-//    public static void updateUrlPath(String projectName,String username,String password) {
-//        Constants.READ_PROJECT_LIST_REST_API = Constants.SERVER_URL + getLocalRestAPI(Constants.READ_PROJECT_LIST_REST_API);
-//        Constants.GET_WEBACCESS_PROJECT_LIST_API = Constants.SERVER_URL + getLocalRestAPI(Constants.GET_WEBACCESS_PROJECT_LIST_API);
-//        Constants.GET_VERSION_API = Constants.SERVER_URL + getLocalRestAPI(Constants.GET_VERSION_API);
-//        Constants.GET_DASHBOARD_TOKEN_REST_API = Constants.SERVER_URL + getLocalRestAPI(Constants.GET_DASHBOARD_TOKEN_REST_API);
-//        Constants.GET_NODE_LIST_REST_API = Constants.SERVER_URL + getLocalRestAPI(Constants.GET_NODE_LIST_REST_API);
-//        Constants.GET_R_TREND_GROUP_ID_REST_API = Constants.SERVER_URL + getLocalRestAPI(Constants.GET_R_TREND_GROUP_ID_REST_API);
-//        Constants.GET_R_TREND_CONFIG_REST_API = Constants.SERVER_URL + getLocalRestAPI(Constants.GET_R_TREND_CONFIG_REST_API);
-//        Constants.GET_TAGS_DATA_REST_API = Constants.SERVER_URL + getLocalRestAPI(Constants.GET_TAGS_DATA_REST_API);
-//        Constants.ALARM_ACK_REST_API = Constants.SERVER_URL + getLocalRestAPI(Constants.ALARM_ACK_REST_API);
-//        Constants.ALARM_ACK_ALL_REST_API = Constants.SERVER_URL + getLocalRestAPI(Constants.ALARM_ACK_ALL_REST_API);
-//        Constants.GET_TAG_LIST_BY_PAGE_REST_API = Constants.SERVER_URL + getLocalRestAPI(Constants.GET_TAG_LIST_BY_PAGE_REST_API);
-//        Constants.SET_TAG_VALUES_REST_API = Constants.SERVER_URL + getLocalRestAPI(Constants.SET_TAG_VALUES_REST_API);
-//        Constants.SUBSCRIBE_NOTIFY_REST_API = Constants.SERVER_URL + getLocalRestAPI(Constants.SUBSCRIBE_NOTIFY_REST_API);
-//        Constants.UNSUBSCRIBE_NOTIFY_REST_API = Constants.SERVER_URL + getLocalRestAPI(Constants.UNSUBSCRIBE_NOTIFY_REST_API);
-//        Constants.DASHBOARD_VIEW_WEB_URL =Constants.SERVER_URL+"/wadashboard/dashboardviewer?projectName1="+projectName+"&username="+username+"&password="+password+"&logoutIcon=false";
-//
-//        Constants.GET_GOOGLE_MAP_LIST_REST_API = Constants.SERVER_URL + getLocalRestAPI(Constants.GET_GOOGLE_MAP_LIST_REST_API);
-//        Constants.GET_GOOGLE_MAP_CONFIG_REST_API = Constants.SERVER_URL + getLocalRestAPI(Constants.GET_GOOGLE_MAP_CONFIG_REST_API);
-//        Constants.GET_BAIDU_MAP_LIST_REST_API = Constants.SERVER_URL + getLocalRestAPI(Constants.GET_BAIDU_MAP_LIST_REST_API);
-//        Constants.GET_BAIDU_MAP_CONFIG_REST_API = Constants.SERVER_URL + getLocalRestAPI(Constants.GET_BAIDU_MAP_CONFIG_REST_API);
-//    }
+
 //
 //    public static String getRestApiUrl(String ip, String restApiUrl) {
 //        return ip + getLocalRestAPI(restApiUrl);
 //    }
 //
-//    public static String getLocalRestAPI(String api) {
-//        return api.substring(api.indexOf("/WADashboard"), api.length());
-//    }
+
 //
 //    public static String getSubscribeNotifyOffUrl(String domainUrl, String deviceID, String deviceType) {
 //        return domainUrl + "?deviceID=" + deviceID + "&deviceType=" + deviceType;
@@ -353,4 +342,6 @@ public class StringProcess {
 //            return Constants.GET_GOOGLE_MAP_CONFIG_REST_API + "/" + programName + "/" + nodeName + "/" + mapName;
 //        }
 //    }
+
+
 }

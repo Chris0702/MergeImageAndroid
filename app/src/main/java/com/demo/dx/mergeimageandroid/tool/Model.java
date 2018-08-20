@@ -622,23 +622,23 @@ public class Model {
 //    }
 //
 //
-//    public boolean getHttpResult(String receiveMessage) {
-//        try {
-//            JSONObject jsonObject = getJsonObject(receiveMessage);
-//            if (jsonObject == null) {
-//                return false;
-//            } else {
-//                String result = jsonObject.getString(Constants.RESULT_REST_API);
-//                if (result.equals(Constants.ZERO)) {
-//                    return true;
-//                } else {
-//                    return false;
-//                }
-//            }
-//        } catch (JSONException e) {
-//            return false;
-//        }
-//    }
+    public boolean getHttpResult(String receiveMessage) {
+        try {
+            JSONObject jsonObject = getJsonObject(receiveMessage);
+            if (jsonObject == null) {
+                return false;
+            } else {
+                String result = jsonObject.getString(Constants.RESULT_REST_API);
+                if (result.equals(Constants.ZERO)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        } catch (JSONException e) {
+            return false;
+        }
+    }
 //
 //    public String getJSONProtString(String protName, String JSONString) {
 //        JSONObject jsonObject = getJsonObject(JSONString);

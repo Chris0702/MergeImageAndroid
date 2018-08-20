@@ -7,8 +7,10 @@ import android.webkit.WebView;
 
 import com.demo.dx.mergeimageandroid.define.Constants;
 import com.demo.dx.mergeimageandroid.tool.Factory;
+import com.demo.dx.mergeimageandroid.tool.HttpClient;
 import com.demo.dx.mergeimageandroid.tool.JavaScriptInterface;
 import com.demo.dx.mergeimageandroid.tool.Model;
+import com.demo.dx.mergeimageandroid.tool.StringProcess;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,6 +30,7 @@ public class Controller {
     protected JavaScriptInterface controlJavaScriptInterface;
     protected String controlPageName;
     protected Model controlModel;
+    protected HttpClient controlHttpClient;
 
 
     public Controller() {
@@ -41,6 +44,7 @@ public class Controller {
         mainWebView = webView;
         controlJavaScriptInterface = javaScriptInterface;
         controlModel = javaScriptInterface.getControlModel();
+        controlHttpClient = factory.createHttpClient();
 //        lang=controlModel.getLangObject(controlModel.getLang());
         controlActivity.runOnUiThread(new Runnable() {
             //  @Override
@@ -48,7 +52,33 @@ public class Controller {
                 mainWebView = controlJavaScriptInterface.refreshWebview();
             }
         });
+        controlHttpClient.checkServerIsExist(this);
     }
+
+    public void checkServerIsExistResponse(boolean result ,final String receiveMessage){
+        if(result){
+            if (controlModel.getHttpResult(receiveMessage)) {
+                controlModel.toastString("server is exist");
+            }else{
+                controlModel.toastString("server is not exist");
+            }
+        }else{
+            controlModel.toastString("server is not exist");
+//            StringProcess.updateUrlPath();
+//            controlModel.toastString(Constants.SERVER_IS_EXIST_API);
+        }
+    }
+
+
+
+//    public void checkServerIsExistResponse(final String receiveMessage){
+//        if (controlModel.getHttpResult(receiveMessage)) {
+//            controlModel.toastString("server is exist");
+//        }else{
+//            controlModel.toastString("server is not exist");
+//        }
+//    }
+
 //
 //    public langController getControllerLang(){
 //        return lang;

@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 //
+import com.demo.dx.mergeimageandroid.controller.Controller;
 import com.demo.dx.mergeimageandroid.define.Constants;
 
 import okhttp3.Call;
@@ -100,6 +101,76 @@ public class HttpClient {
     public Call getCall(Request request) {
         return okHttpClient.newCall(request);
     }
+
+    public void checkServerIsExist(final Controller controller) {
+        Log.d("debug", "http  rest api getWebAccessProjectList  ");
+        Request request = new Request.Builder()
+                .url(Constants.SERVER_IS_EXIST_API)
+                .build();
+        Call call = okHttpClient.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                controller.checkServerIsExistResponse(false,Constants.EMPTY_STRING);
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String receiveMessage = response.body().string();
+                Log.d("http", receiveMessage);
+                controller.checkServerIsExistResponse(true,receiveMessage);
+            }
+        });
+    }
+
+    public void getLocalPathAll(final String folderName,final Controller controller) {
+        Log.d("debug", "http  rest api getLocalPathAll  ");
+        String requestUrl = StringProcess.getLocalPathAllApiUrl(folderName);
+        Request request = new Request.Builder()
+                .url(requestUrl)
+                .build();
+        Call call = okHttpClient.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+//                controller.checkServerIsExistResponse(false,Constants.EMPTY_STRING);
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String receiveMessage = response.body().string();
+                Log.d("http", receiveMessage);
+//                controller.checkServerIsExistResponse(true,receiveMessage);
+            }
+        });
+    }
+
+
+//    public void getMapListByNode(final String projectName, final String nodeName, final String mapType, final MapListController controller) {
+//        Log.d("debug", "Constants.GET_XXX_MAP_LIST_REST_API");
+//        String requestUrl = StringProcess.getMapListApiUrl(projectName, nodeName, mapType);
+//        Request request = new Request.Builder()
+//                .url(requestUrl)
+//                .addHeader(Constants.COOKIE, StringProcess.getCookieString(serverToken))
+//                .build();
+//        Call call = okHttpClient.newCall(request);
+//        call.enqueue(new Callback() {
+//            @Override
+//            public void onFailure(Call call, IOException e) {
+//                Log.d("http", "http rest api getMapListByNode  fail         ");
+//                controller.getControlModel().toastString(controller.getControllerLang().INTERNET_SERVER_ERROR);
+//                controller.getMapListResponse(Constants.HTTP_FAIL);
+//            }
+//
+//            @Override
+//            public void onResponse(Call call, Response response) throws IOException {
+//                Log.d("http", "http rest api  getMapListByNode  success  ");
+//                String receiveMessage = response.body().string();
+//                controller.getMapListResponse(receiveMessage);
+//            }
+//        });
+//    }
+
 //
 //    public void setTagValue(final String projectName, final String tags, final HttpHandler handler ){ //TagsInfoValueController tagsInfoValueController) {
 //        RequestBody requestBody = new FormBody.Builder()
