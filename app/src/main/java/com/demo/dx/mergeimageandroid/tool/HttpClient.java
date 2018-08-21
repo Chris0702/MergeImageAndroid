@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.List;
 //
 import com.demo.dx.mergeimageandroid.controller.Controller;
+import com.demo.dx.mergeimageandroid.controller.MergeImageController;
 import com.demo.dx.mergeimageandroid.define.Constants;
 
 import okhttp3.Call;
@@ -143,6 +144,36 @@ public class HttpClient {
                 String receiveMessage = response.body().string();
                 Log.d("http", receiveMessage);
                 controller.getLocalPathAllResponse(receiveMessage);
+            }
+        });
+    }
+
+    public void mergeImage(final String mergeImageArr, final String targetImage, final MergeImageController mergeImageController) {
+        RequestBody requestBody = new FormBody.Builder()
+                .add(Constants.MERGE_IMAGE_ARRAY_S, mergeImageArr)
+                .add(Constants.TARGET_IMAGE, targetImage)
+                .build();
+        Request request = new Request.Builder()
+                .url(Constants.MERGE_IMAGE_ALL_API)
+                .post(requestBody)
+//                .addHeader(Constants.COOKIE, StringProcess.getCookieString(serverToken))
+                .build();
+        Call call = okHttpClient.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.d("http", "http rest api  mergeImage  fail         "+e);
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                Log.d("http", "http rest api  mergeImage  success  ");
+                String receiveMessage = response.body().string();
+                Log.d("http", "http rest api  mergeImage  success   receiveMessage   " + receiveMessage);
+                mergeImageController.mergeImageExeResponse(receiveMessage);
+//                handler.completion("setTagValues", receiveMessage);
+                //tagsInfoValueController.setTagValueResponse(receiveMessage);
+//                controller.alarmAckResponse(receiveMessage);
             }
         });
     }

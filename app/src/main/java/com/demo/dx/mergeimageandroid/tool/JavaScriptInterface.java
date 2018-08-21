@@ -186,8 +186,8 @@ public class JavaScriptInterface {
         if (jsonObject != null) {
             arg[0] = controlModel.getJSONProtString(Constants.MERGE_IMAGE_ARRAY, jsonObject);
             arg[1] = controlModel.getJSONProtString(Constants.TARGET_IMAGE, jsonObject);
-            Log.d(TAG, "   getTagsListByPage  0  " + arg[0].toString());
-            Log.d(TAG, "   getTagsListByPage  1 " + arg[1].toString());
+            Log.d(TAG, "   mergeImageExe  0  " + arg[0].toString());
+            Log.d(TAG, "   mergeImageExe  1 " + arg[1].toString());
             controller.executeCmd(Constants.MERGE_IMAGE_EXE_COMMAND, arg);
         }
     }

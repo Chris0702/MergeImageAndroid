@@ -639,11 +639,11 @@ public class Model {
             return false;
         }
     }
-//
-//    public String getJSONProtString(String protName, String JSONString) {
-//        JSONObject jsonObject = getJsonObject(JSONString);
-//        return getJSONProtString(protName, jsonObject);
-//    }
+
+    public String getJSONProtString(String protName, String JSONString) {
+        JSONObject jsonObject = getJsonObject(JSONString);
+        return getJSONProtString(protName, jsonObject);
+    }
 
     public JSONObject getJsonObject(String JSONString) {
         JSONObject jsonObject = null;

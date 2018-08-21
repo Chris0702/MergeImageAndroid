@@ -31,7 +31,7 @@ public class MergeImageController  extends Controller{
                 getMergeImageAllSrc();
                 break;
             case Constants.MERGE_IMAGE_EXE_COMMAND:
-                getMergeImageAllSrc();
+                mergeImageExe(arg[0].toString(),arg[1].toString());
                 break;
             case Constants.GET_LANGUAGE_COMMAND:
 //                insertLanguage();
@@ -47,8 +47,10 @@ public class MergeImageController  extends Controller{
         mainWebView.addJavascriptInterface(controlJavaScriptInterface, Constants.ANDROID_PARAMETER_FOR_JAVASCRIPT);
     }
 
-    private void mergeImageExe(String mergeImageArr,String targetImage){
-
+    private void mergeImageExe(String mergeImageArr, String targetImage){
+        mergeImageArr=StringProcess.filter(mergeImageArr,Constants.BACKSLASH_CHAR);
+        targetImage=StringProcess.filter(targetImage,Constants.BACKSLASH_CHAR);
+        controlHttpClient.mergeImage(mergeImageArr,targetImage,this);
     }
 
     private void getMergeImageAllSrc(){
@@ -56,16 +58,37 @@ public class MergeImageController  extends Controller{
     }
 
     public void getLocalPathAllResponse(final String receiveMessage){
-//        controlModel.toastString(result);
+//        controlModel.toastString(receiveMessage);
         controlActivity.runOnUiThread(new Runnable() {
             //  @Override
             public void run() {
-//                String setMergeImageAllUrl = StringProcess.getJavascriptFunctionStringBy1WayStringArrayString(receiveMessage, Constants.IMAGE_ARRAY, Constants.SET_MERGE_IMAGE_ALL_JAVASCRIPT);
                 String setMergeImageAllUrl = StringProcess.getJavascriptFunctionStringByArrayStringAndString(Constants.IMAGE_ARRAY, receiveMessage, Constants.SERVER_URL_STRING, Constants.SERVER_URL, Constants.SET_MERGE_IMAGE_ALL_JAVASCRIPT);
                 Log.d("debug", "setMergeImageAllUrl ok       " + setMergeImageAllUrl);
                 mainWebView.loadUrl(setMergeImageAllUrl);
                 Log.d("debug", "setMergeImageAllUrl ok");
             }
         });
+    }
+
+    public void mergeImageExeResponse(final String receiveMessage){
+        if (controlModel.getHttpResult(receiveMessage)) {
+//                controlModel.toastString("server is exist");
+
+            controlActivity.runOnUiThread(new Runnable() {
+                //  @Override
+                public void run() {
+                    String result = controlModel.getJSONProtString(Constants.RES_STRING_REST_API, receiveMessage);
+                    String setMergeImageResultUrl = StringProcess.getJavascriptFunctionStringByString(Constants.RESULT, result, Constants.SERVER_URL_STRING, Constants.SERVER_URL, Constants.SET_MERGE_IMAGE_RESULT_JAVASCRIPT);
+                    Log.d("debug", "setMergeImageResultUrl ok       " + setMergeImageResultUrl);
+                    mainWebView.loadUrl(setMergeImageResultUrl);
+                    Log.d("debug", "setMergeImageResultUrl ok");
+                }
+            });
+        } else {
+            controlModel.toastString("merge fail");
+        }
+
+
+
     }
 }

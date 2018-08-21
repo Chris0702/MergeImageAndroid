@@ -4,8 +4,8 @@ package com.demo.dx.mergeimageandroid.define;
  * Created by Chris.Wu on 2016/10/21.
  */
 public class Constants {
-    public static final String SERVER_URL = "http://172.16.12.122:3000";
-//        public static final String SERVER_URL = "http://192.168.0.11:3000";
+//    public static final String SERVER_URL = "http://172.16.12.122:3000";
+        public static final String SERVER_URL = "http://192.168.0.11:3000";
 //    public static String SERVER_URL = "http://172.18.2.42:81";
 //public static final String SERVER_URL = "http://172.18.2.42:3000";
 //public static final String SERVER_URL = "http://54.249.42.33:81";
@@ -43,6 +43,7 @@ public class Constants {
     public static final String JAVASCRIPT_PARAMETER_FOR_ANDROID = "jsAppInterface";
 
     public static final String SET_MERGE_IMAGE_ALL_JAVASCRIPT = "setMergeImageAll";
+    public static final String SET_MERGE_IMAGE_RESULT_JAVASCRIPT = "setMergeImageResult";
 
 
     public static final String INSERT_IP_HISTORY_LIST_JAVASCRIPT = "insertIpHistoryList";
@@ -222,8 +223,10 @@ public class Constants {
     public static final String TREND_GROUR_ID="trendGroupId";
     public static final String TREND_CONFIG="trendConfig";
     public static final String MERGE_IMAGE_ARRAY="mergeImgArr";
+    public static final String MERGE_IMAGE_ARRAY_S="mergeImgArr[]";
     public static final String TARGET_IMAGE="targetImg";
-
+    public static final String RESULT="result";
+    public static final char BACKSLASH_CHAR='\\';
 
     public static final String NODE_NAME="nodeName";
     public static final String TAGS_LIST="tagsList";
@@ -318,7 +321,7 @@ public class Constants {
     //rest api
     public static String SERVER_IS_EXIST_API = SERVER_URL + "/server/isExist";
     public static String GET_LOCAL_PATH_ALL_API = SERVER_URL + "/file/getLocalPathAll";
-
+    public static String MERGE_IMAGE_ALL_API = SERVER_URL + "/exe/mergeImage";
 
 
 //    public static String READ_PROJECT_LIST_REST_API = SERVER_URL + "/WADashboard/api/dashboard/v1/mainframes/readProjectList";

@@ -26,10 +26,23 @@ public class StringProcess {
 
     public static void updateUrlPath() {
         Constants.SERVER_IS_EXIST_API = Constants.SERVER_URL + getLocalRestAPI(Constants.SERVER_API_TYPE,Constants.SERVER_IS_EXIST_API);
+        Constants.GET_LOCAL_PATH_ALL_API = Constants.SERVER_URL + getLocalRestAPI(Constants.FILE_API_TYPE,Constants.GET_LOCAL_PATH_ALL_API);
+        Constants.MERGE_IMAGE_ALL_API = Constants.SERVER_URL + getLocalRestAPI(Constants.EXE_API_TYPE,Constants.MERGE_IMAGE_ALL_API);
+
     }
 
     public static String getLocalRestAPI(String apiType,String api) {
         return api.substring(api.indexOf("/"+apiType), api.length());
+    }
+
+    public static String filter(String str,char key) {
+        String result = Constants.EMPTY_STRING;
+        for(int i=0;i<str.length();i++){
+            if(str.charAt(i)!=key){
+                result = result+str.charAt(i);
+            }
+        }
+        return result;
     }
 
     public static String getLocalPathAllApiUrl(String folderName) {
@@ -48,6 +61,27 @@ public class StringProcess {
                 + Constants.DOUBLE_QUOTES + stringName + Constants.DOUBLE_QUOTES + ":" + Constants.DOUBLE_QUOTES + stringValue + Constants.DOUBLE_QUOTES
                 + "}";
         String result = Constants.JAVASCRIPT + ":" + Constants.JAVASCRIPT_PARAMETER_FOR_ANDROID + "." + functionName + "('" + arg + "')";
+        return result;
+    }
+
+    // getJavascriptFunctionString
+    public static String getJavascriptFunctionString(String arg, String functionName) {
+        String result = Constants.JAVASCRIPT + ":" + Constants.JAVASCRIPT_PARAMETER_FOR_ANDROID + "." + functionName + "('" + arg + "')";
+        return result;
+    }
+
+        public static String getJavascriptFunctionStringByString(String stringName, String stringValue, String functionName) {
+        String arg = "{" + Constants.DOUBLE_QUOTES + stringName + Constants.DOUBLE_QUOTES + ":" + Constants.DOUBLE_QUOTES + stringValue + Constants.DOUBLE_QUOTES + "}";
+        String result = Constants.JAVASCRIPT + ":" + Constants.JAVASCRIPT_PARAMETER_FOR_ANDROID + "." + functionName + "('" + arg + "')";
+        return result;
+    }
+
+        public static String getJavascriptFunctionStringByString(String stringName1, String stringValue1,String stringName2, String stringValue2, String functionName) {
+            String arg = "{"
+                    + Constants.DOUBLE_QUOTES + stringName1 + Constants.DOUBLE_QUOTES + ":" + Constants.DOUBLE_QUOTES + stringValue1 + Constants.DOUBLE_QUOTES + ","
+                    + Constants.DOUBLE_QUOTES + stringName2 + Constants.DOUBLE_QUOTES + ":" + Constants.DOUBLE_QUOTES + stringValue2 + Constants.DOUBLE_QUOTES
+                    + "}";
+        String result = getJavascriptFunctionString(arg, functionName);
         return result;
     }
 
