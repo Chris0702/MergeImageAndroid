@@ -178,6 +178,19 @@ public class JavaScriptInterface {
         controller.executeCmd(Constants.GET_MERGE_IMAGE_ALL_SRC_COMMAND, null);
     }
 
+    @JavascriptInterface
+    public void mergeImageExe(final String JSONString) {
+        Log.d(TAG, "  mergeImageExe    JSONString   " + JSONString);
+        Object[] arg = new Object[3];
+        JSONObject jsonObject = controlModel.getJsonObject(JSONString);
+        if (jsonObject != null) {
+            arg[0] = controlModel.getJSONProtString(Constants.MERGE_IMAGE_ARRAY, jsonObject);
+            arg[1] = controlModel.getJSONProtString(Constants.TARGET_IMAGE, jsonObject);
+            Log.d(TAG, "   getTagsListByPage  0  " + arg[0].toString());
+            Log.d(TAG, "   getTagsListByPage  1 " + arg[1].toString());
+            controller.executeCmd(Constants.MERGE_IMAGE_EXE_COMMAND, arg);
+        }
+    }
 //
 //    public JSONObject getLocalStorageMem() {
 //        return localStorageMem;

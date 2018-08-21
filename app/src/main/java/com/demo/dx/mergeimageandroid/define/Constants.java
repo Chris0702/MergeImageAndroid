@@ -4,7 +4,8 @@ package com.demo.dx.mergeimageandroid.define;
  * Created by Chris.Wu on 2016/10/21.
  */
 public class Constants {
-        public static final String SERVER_URL = "http://192.168.0.11:3000";
+    public static final String SERVER_URL = "http://172.16.12.122:3000";
+//        public static final String SERVER_URL = "http://192.168.0.11:3000";
 //    public static String SERVER_URL = "http://172.18.2.42:81";
 //public static final String SERVER_URL = "http://172.18.2.42:3000";
 //public static final String SERVER_URL = "http://54.249.42.33:81";
@@ -220,6 +221,9 @@ public class Constants {
     public static final String TREND_LIST="trendList";
     public static final String TREND_GROUR_ID="trendGroupId";
     public static final String TREND_CONFIG="trendConfig";
+    public static final String MERGE_IMAGE_ARRAY="mergeImgArr";
+    public static final String TARGET_IMAGE="targetImg";
+
 
     public static final String NODE_NAME="nodeName";
     public static final String TAGS_LIST="tagsList";
@@ -272,6 +276,7 @@ public class Constants {
 
     //controller command
     public static final String GET_MERGE_IMAGE_ALL_SRC_COMMAND = "getMergeImageAllSrc";
+    public static final String MERGE_IMAGE_EXE_COMMAND = "mergeImageExe";
 
     public static final String INPUT_CONNECT_IP_COMMAND = "inputConnectIP";
     public static final String GET_IP_HISTORY_LIST_COMMAND = "getIpHistoryList";

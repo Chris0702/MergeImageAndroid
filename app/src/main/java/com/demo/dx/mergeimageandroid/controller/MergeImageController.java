@@ -28,8 +28,9 @@ public class MergeImageController  extends Controller{
         Log.d("debug", "mergeimage  exe");
         switch (cmd) {
             case Constants.GET_MERGE_IMAGE_ALL_SRC_COMMAND:
-//                controlModel.logServerDB();
-//                getFunctionList();
+                getMergeImageAllSrc();
+                break;
+            case Constants.MERGE_IMAGE_EXE_COMMAND:
                 getMergeImageAllSrc();
                 break;
             case Constants.GET_LANGUAGE_COMMAND:
@@ -44,6 +45,10 @@ public class MergeImageController  extends Controller{
         mainWebView.getSettings().setDomStorageEnabled(true);
         mainWebView.loadUrl(Constants.MERGE_IMAGE_WEB_URL);
         mainWebView.addJavascriptInterface(controlJavaScriptInterface, Constants.ANDROID_PARAMETER_FOR_JAVASCRIPT);
+    }
+
+    private void mergeImageExe(String mergeImageArr,String targetImage){
+
     }
 
     private void getMergeImageAllSrc(){
