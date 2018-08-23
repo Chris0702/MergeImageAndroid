@@ -177,6 +177,8 @@ public class Constants {
             + "CONSTRAINT "+PROJECT_ID_SQL+" PRIMARY KEY ("+PROJECT_IP_SQL+","+PROJECT_NAME_SQL+")); ";
 
     //util
+    public static final int PHOTO = 99;
+    public static final int BITMAP_COMPRESS_RATIO = 30;
     public static final String SERVER_URL_STRING="serverUrl";
     public static final String IMAGE_ARRAY="imgArr";
     public static final String OPEN_BRACE = "{";
@@ -224,6 +226,7 @@ public class Constants {
     public static final String TREND_CONFIG="trendConfig";
     public static final String MERGE_IMAGE_ARRAY="mergeImgArr";
     public static final String MERGE_IMAGE_ARRAY_S="mergeImgArr[]";
+    public static final String IMAGE_BYTE="imageByte";
     public static final String TARGET_IMAGE="targetImg";
     public static final String RESULT="result";
     public static final char BACKSLASH_CHAR='\\';
@@ -280,6 +283,7 @@ public class Constants {
     //controller command
     public static final String GET_MERGE_IMAGE_ALL_SRC_COMMAND = "getMergeImageAllSrc";
     public static final String MERGE_IMAGE_EXE_COMMAND = "mergeImageExe";
+    public static final String SELECT_IMAGE_FILE_COMMAND = "selectImageFile";
 
     public static final String INPUT_CONNECT_IP_COMMAND = "inputConnectIP";
     public static final String GET_IP_HISTORY_LIST_COMMAND = "getIpHistoryList";
@@ -322,6 +326,7 @@ public class Constants {
     public static String SERVER_IS_EXIST_API = SERVER_URL + "/server/isExist";
     public static String GET_LOCAL_PATH_ALL_API = SERVER_URL + "/file/getLocalPathAll";
     public static String MERGE_IMAGE_ALL_API = SERVER_URL + "/exe/mergeImage";
+    public static String UPLOAD_IMAGE_API = SERVER_URL + "/file/uploadMergeImageMobile";
 
 
 //    public static String READ_PROJECT_LIST_REST_API = SERVER_URL + "/WADashboard/api/dashboard/v1/mainframes/readProjectList";

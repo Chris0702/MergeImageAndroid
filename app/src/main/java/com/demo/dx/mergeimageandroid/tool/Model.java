@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.icu.text.LocaleDisplayNames;
 import android.location.Address;
 import android.location.Criteria;
@@ -31,6 +32,7 @@ import com.demo.dx.mergeimageandroid.define.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -665,6 +667,12 @@ public class Model {
             } catch (JSONException e) {
             }
         return result;
+    }
+
+    public byte[] Bitmap2Bytes(Bitmap bm) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bm.compress(Bitmap.CompressFormat.PNG, Constants.BITMAP_COMPRESS_RATIO, baos);
+        return baos.toByteArray();
     }
 
 //    public String getProperIp(String ip) {

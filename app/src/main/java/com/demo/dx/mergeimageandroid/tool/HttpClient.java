@@ -26,6 +26,7 @@ import java.util.List;
 //
 import com.demo.dx.mergeimageandroid.controller.Controller;
 import com.demo.dx.mergeimageandroid.controller.MergeImageController;
+import com.demo.dx.mergeimageandroid.controller.UploadController;
 import com.demo.dx.mergeimageandroid.define.Constants;
 
 import okhttp3.Call;
@@ -171,9 +172,33 @@ public class HttpClient {
                 String receiveMessage = response.body().string();
                 Log.d("http", "http rest api  mergeImage  success   receiveMessage   " + receiveMessage);
                 mergeImageController.mergeImageExeResponse(receiveMessage);
-//                handler.completion("setTagValues", receiveMessage);
-                //tagsInfoValueController.setTagValueResponse(receiveMessage);
-//                controller.alarmAckResponse(receiveMessage);
+            }
+        });
+    }
+
+    public void uploadImage(final String imageByte,final UploadController uploadController) {
+        RequestBody requestBody = new FormBody.Builder()
+                .add(Constants.IMAGE_BYTE, imageByte)
+                .build();
+        Request request = new Request.Builder()
+                .url(Constants.UPLOAD_IMAGE_API)
+                .post(requestBody)
+//                .addHeader(Constants.COOKIE, StringProcess.getCookieString(serverToken))
+                .build();
+        Call call = okHttpClient.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.d("http", "http rest api  uploadImage  fail         "+e);
+                uploadController.uploadImageResponse(Constants.EMPTY_STRING);
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                Log.d("http", "http rest api  uploadImage  success  ");
+                String receiveMessage = response.body().string();
+                Log.d("http", "http rest api  uploadImage  success   receiveMessage   " + receiveMessage);
+                uploadController.uploadImageResponse(receiveMessage);
             }
         });
     }

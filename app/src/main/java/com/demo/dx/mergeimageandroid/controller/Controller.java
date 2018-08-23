@@ -70,8 +70,16 @@ public class Controller {
 
     public void getLocalPathAllResponse(String result){
     }
+    public void receiveImage(String imageByte){
+//    public void receiveImage(byte[] imageByte){
 
-//    public void checkServerIsExistResponse(final String receiveMessage){
+    }
+
+    public Model getControlModel() {
+        return controlModel;
+    }
+
+    //    public void checkServerIsExistResponse(final String receiveMessage){
 //        if (controlModel.getHttpResult(receiveMessage)) {
 //            controlModel.toastString("server is exist");
 //        }else{

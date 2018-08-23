@@ -52,21 +52,15 @@ public class JavaScriptInterface {
 //        connectivityManager = (ConnectivityManager) controlActivity.getSystemService(Context.CONNECTIVITY_SERVICE);
 //        networkInfo = connectivityManager.getActiveNetworkInfo();
     }
+    public void controllerReceiveImage(String imageByte){
+//    public void controllerReceiveImage(byte[] imageByte){
+        controller.receiveImage(imageByte);
+    }
 
-    //
     private void createObj() {
-        //factory = new Factory();
-//        controlProject = factory.createProject();
-//        controlUser = factory.createUser();
-//        controlServer = factory.createServer();
         localStorageMem = new JSONObject();
     }
 
-    //
-//    public WebView getWebview(){
-//        return controlWebView;
-//    }
-//
     public WebView refreshWebview() {
         if (mainWebViewScroll != null) {
             mainWebViewScroll.removeView(controlWebView);
@@ -619,6 +613,12 @@ public class JavaScriptInterface {
 //        }
 //    }
 
+
+    @JavascriptInterface
+    public void selectImageFile() {
+//        controlModel.toastString("selectImageFile1111   ");
+       controller.executeCmd(Constants.SELECT_IMAGE_FILE_COMMAND, null);
+    }
 
     @JavascriptInterface
     public void changePage(final String JSONString) {

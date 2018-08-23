@@ -27,8 +27,8 @@ public class StringProcess {
     public static void updateUrlPath() {
         Constants.SERVER_IS_EXIST_API = Constants.SERVER_URL + getLocalRestAPI(Constants.SERVER_API_TYPE,Constants.SERVER_IS_EXIST_API);
         Constants.GET_LOCAL_PATH_ALL_API = Constants.SERVER_URL + getLocalRestAPI(Constants.FILE_API_TYPE,Constants.GET_LOCAL_PATH_ALL_API);
+        Constants.UPLOAD_IMAGE_API = Constants.SERVER_URL + getLocalRestAPI(Constants.FILE_API_TYPE,Constants.UPLOAD_IMAGE_API);
         Constants.MERGE_IMAGE_ALL_API = Constants.SERVER_URL + getLocalRestAPI(Constants.EXE_API_TYPE,Constants.MERGE_IMAGE_ALL_API);
-
     }
 
     public static String getLocalRestAPI(String apiType,String api) {

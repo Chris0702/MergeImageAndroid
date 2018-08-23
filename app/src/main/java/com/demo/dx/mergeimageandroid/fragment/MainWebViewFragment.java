@@ -66,6 +66,11 @@ public class MainWebViewFragment extends Fragment {
         controlJavaScriptInterface.changePage(StringProcess.getChangePageURL(Constants.HOME_PAGE_NAME));
     }
 
+    public void receiveImage(String imageByte){
+//    public void receiveImage(byte[] imageByte){
+        controlJavaScriptInterface.controllerReceiveImage(imageByte);
+    }
+
     private void createObj(View view) {
         //factory = new Factory();
         controlModel = factory.createModel(getActivity());
